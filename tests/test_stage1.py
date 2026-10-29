@@ -4,6 +4,7 @@ from experiment_runner import _json_default
 from objective import ExperimentContext, evaluate_configuration, evaluate_test_configuration
 from models.random_forest import SEARCH_SPACE
 from models.xgboost import SEARCH_SPACE as XGBOOST_SEARCH_SPACE
+from models.lightgbm import SEARCH_SPACE as LIGHTGBM_SEARCH_SPACE
 from optimizers.random_search import run
 from optimizers.common import pairwise_configurations
 from optimizers.grid_search import run as grid_run
@@ -84,6 +85,34 @@ def test_xgboost_objective_returns_metrics():
         "max_depth",
         "learning_rate",
         "min_child_weight",
+        "subsample",
+        "colsample_bytree",
+    }
+
+
+def test_lightgbm_objective_returns_metrics():
+    context = _context()
+    context.model_name = "lightgbm"
+    result = evaluate_configuration(
+        {
+            "n_estimators": 5,
+            "max_depth": 3,
+            "learning_rate": 0.1,
+            "num_leaves": 15,
+            "min_child_samples": 10,
+            "subsample": 1.0,
+            "colsample_bytree": 1.0,
+        },
+        context,
+    )
+    assert result["status"] == "completed"
+    assert 0.0 <= result["validation_macro_f1"] <= 1.0
+    assert set(LIGHTGBM_SEARCH_SPACE) == {
+        "n_estimators",
+        "max_depth",
+        "learning_rate",
+        "num_leaves",
+        "min_child_samples",
         "subsample",
         "colsample_bytree",
     }

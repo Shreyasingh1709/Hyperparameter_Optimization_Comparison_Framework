@@ -17,6 +17,7 @@ from config import (
     TRIAL_RESULTS_PATH,
 )
 from data.adult import load_adult
+from models.lightgbm import SEARCH_SPACE as LIGHTGBM_SEARCH_SPACE
 from models.random_forest import SEARCH_SPACE as RANDOM_FOREST_SEARCH_SPACE
 from models.xgboost import SEARCH_SPACE as XGBOOST_SEARCH_SPACE
 from objective import (
@@ -104,6 +105,7 @@ def run_experiment(
     model_spaces = {
         "random_forest": RANDOM_FOREST_SEARCH_SPACE,
         "xgboost": XGBOOST_SEARCH_SPACE,
+        "lightgbm": LIGHTGBM_SEARCH_SPACE,
     }
     if model_name not in model_spaces:
         raise ValueError(f"Unsupported model: {model_name}")

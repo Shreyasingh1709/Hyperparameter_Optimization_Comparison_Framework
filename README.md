@@ -1,7 +1,7 @@
 # Comparative HPO Framework
 
-The pilot path supports Adult Census Income with Random Forest or XGBoost and
-eleven identifiable optimizer adapters. The objective uses validation macro-F1 and
+The pilot path supports Adult Census Income with Random Forest, XGBoost, or
+LightGBM and eleven identifiable optimizer adapters. The objective uses validation macro-F1 and
 never uses the test split during tuning.
 
 ## Python 3.10 (system-wide, no virtual environment)
@@ -26,6 +26,8 @@ py -3.10 main.py --optimizer hyperband --trials 10
 py -3.10 main.py --optimizer pairwise --trials 10
 py -3.10 main.py --model xgboost --optimizer random_search --trials 10
 # Repeat the XGBoost command with each of the other ten optimizer names above.
+py -3.10 main.py --model lightgbm --optimizer random_search --trials 10
+# Repeat the LightGBM command with each of the other ten optimizer names above.
 # Evaluate the best full-dataset configuration for a model on the test split:
 py -3.10 main.py --model xgboost --final-evaluate
 # Faster, explicitly reduced-data smoke pilot:

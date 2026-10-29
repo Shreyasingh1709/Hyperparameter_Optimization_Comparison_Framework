@@ -8,6 +8,7 @@ import pandas as pd
 from sklearn.metrics import accuracy_score, balanced_accuracy_score, f1_score
 
 from models.random_forest import build_model as build_random_forest
+from models.lightgbm import build_model as build_lightgbm
 from models.xgboost import build_model as build_xgboost
 
 
@@ -52,6 +53,22 @@ def _build_model(
         )
         return (
             build_xgboost(clean_parameters, context.categorical_columns),
+            y_train,
+            y_validation,
+            y_test,
+        )
+    if context.model_name == "lightgbm":
+        labels = sorted(context.y_train.astype(str).unique())
+        label_to_int = {label: index for index, label in enumerate(labels)}
+        y_train = context.y_train.astype(str).map(label_to_int)
+        y_validation = context.y_validation.astype(str).map(label_to_int)
+        y_test = (
+            context.y_test.astype(str).map(label_to_int)
+            if context.y_test is not None
+            else None
+        )
+        return (
+            build_lightgbm(clean_parameters, context.categorical_columns),
             y_train,
             y_validation,
             y_test,

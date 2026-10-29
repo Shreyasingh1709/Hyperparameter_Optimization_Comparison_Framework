@@ -17,7 +17,7 @@ def main() -> None:
     )
     parser.add_argument(
         "--model",
-        choices=["random_forest", "xgboost"],
+        choices=["random_forest", "xgboost", "lightgbm"],
         default="random_forest",
     )
     parser.add_argument(
