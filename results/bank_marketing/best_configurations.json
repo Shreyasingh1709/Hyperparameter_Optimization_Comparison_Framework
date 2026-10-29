@@ -1,0 +1,651 @@
+{
+  "bank_marketing/random_forest/random_search": {
+    "dataset": "bank_marketing",
+    "model": "random_forest",
+    "optimizer": "random_search",
+    "requested_trials": 10,
+    "objective_evaluations": 10,
+    "completed_trials": 10,
+    "best_validation_macro_f1": 0.7431475607683227,
+    "best_parameters": {
+      "n_estimators": 67,
+      "max_depth": null,
+      "min_samples_split": 12,
+      "min_samples_leaf": 6,
+      "max_features": null,
+      "bootstrap": true,
+      "criterion": "entropy"
+    },
+    "max_rows": null
+  },
+  "bank_marketing/random_forest/optuna_tpe": {
+    "dataset": "bank_marketing",
+    "model": "random_forest",
+    "optimizer": "optuna_tpe",
+    "requested_trials": 10,
+    "objective_evaluations": 10,
+    "completed_trials": 10,
+    "best_validation_macro_f1": 0.7482801157142077,
+    "best_parameters": {
+      "n_estimators": 52,
+      "max_depth": 16,
+      "min_samples_split": 7,
+      "min_samples_leaf": 6,
+      "max_features": null,
+      "bootstrap": true,
+      "criterion": "gini"
+    },
+    "max_rows": null
+  },
+  "bank_marketing/random_forest/grid_search": {
+    "dataset": "bank_marketing",
+    "model": "random_forest",
+    "optimizer": "grid_search",
+    "requested_trials": 10,
+    "objective_evaluations": 10,
+    "completed_trials": 10,
+    "best_validation_macro_f1": 0.744374726426051,
+    "best_parameters": {
+      "n_estimators": 50,
+      "max_depth": null,
+      "min_samples_split": 2,
+      "min_samples_leaf": 1,
+      "max_features": "sqrt",
+      "bootstrap": false,
+      "criterion": "gini"
+    },
+    "max_rows": null
+  },
+  "bank_marketing/random_forest/hyperopt_tpe": {
+    "dataset": "bank_marketing",
+    "model": "random_forest",
+    "optimizer": "hyperopt_tpe",
+    "requested_trials": 10,
+    "objective_evaluations": 10,
+    "completed_trials": 10,
+    "best_validation_macro_f1": 0.7358993980688797,
+    "best_parameters": {
+      "bootstrap": false,
+      "criterion": "entropy",
+      "max_depth": 24,
+      "max_features": "sqrt",
+      "min_samples_leaf": 1,
+      "min_samples_split": 12,
+      "n_estimators": 120
+    },
+    "max_rows": null
+  },
+  "bank_marketing/random_forest/gaussian_process": {
+    "dataset": "bank_marketing",
+    "model": "random_forest",
+    "optimizer": "gaussian_process",
+    "requested_trials": 10,
+    "objective_evaluations": 10,
+    "completed_trials": 10,
+    "best_validation_macro_f1": 0.7272626155908355,
+    "best_parameters": {
+      "n_estimators": 97,
+      "max_depth": 24,
+      "min_samples_split": 9,
+      "min_samples_leaf": 3,
+      "max_features": "sqrt",
+      "bootstrap": false,
+      "criterion": "entropy"
+    },
+    "max_rows": null
+  },
+  "bank_marketing/random_forest/smac3": {
+    "dataset": "bank_marketing",
+    "model": "random_forest",
+    "optimizer": "smac3",
+    "requested_trials": 10,
+    "objective_evaluations": 10,
+    "completed_trials": 10,
+    "best_validation_macro_f1": 0.7480575449449867,
+    "best_parameters": {
+      "bootstrap": true,
+      "criterion": "entropy",
+      "max_depth": null,
+      "max_features": null,
+      "min_samples_leaf": 5,
+      "min_samples_split": 4,
+      "n_estimators": 104
+    },
+    "max_rows": null
+  },
+  "bank_marketing/random_forest/cma_es": {
+    "dataset": "bank_marketing",
+    "model": "random_forest",
+    "optimizer": "cma_es",
+    "requested_trials": 10,
+    "objective_evaluations": 10,
+    "completed_trials": 10,
+    "best_validation_macro_f1": 0.6507734574015345,
+    "best_parameters": {
+      "n_estimators": 100,
+      "max_depth": 16,
+      "min_samples_split": 7,
+      "min_samples_leaf": 4,
+      "max_features": "log2",
+      "bootstrap": true,
+      "criterion": "entropy"
+    },
+    "max_rows": null
+  },
+  "bank_marketing/random_forest/genetic_algorithm": {
+    "dataset": "bank_marketing",
+    "model": "random_forest",
+    "optimizer": "genetic_algorithm",
+    "requested_trials": 10,
+    "objective_evaluations": 10,
+    "completed_trials": 10,
+    "best_validation_macro_f1": 0.7431475607683227,
+    "best_parameters": {
+      "n_estimators": 67,
+      "max_depth": null,
+      "min_samples_split": 12,
+      "min_samples_leaf": 6,
+      "max_features": null,
+      "bootstrap": true,
+      "criterion": "entropy"
+    },
+    "max_rows": null
+  },
+  "bank_marketing/random_forest/successive_halving": {
+    "dataset": "bank_marketing",
+    "model": "random_forest",
+    "optimizer": "successive_halving",
+    "requested_trials": 10,
+    "objective_evaluations": 10,
+    "completed_trials": 10,
+    "best_validation_macro_f1": 0.7517008246769602,
+    "best_parameters": {
+      "n_estimators": 16,
+      "max_depth": null,
+      "min_samples_split": 12,
+      "min_samples_leaf": 6,
+      "max_features": null,
+      "bootstrap": true,
+      "criterion": "entropy"
+    },
+    "max_rows": null
+  },
+  "bank_marketing/random_forest/hyperband": {
+    "dataset": "bank_marketing",
+    "model": "random_forest",
+    "optimizer": "hyperband",
+    "requested_trials": 10,
+    "objective_evaluations": 10,
+    "completed_trials": 10,
+    "best_validation_macro_f1": 0.7407548650883198,
+    "best_parameters": {
+      "n_estimators": 25,
+      "max_depth": null,
+      "min_samples_split": 12,
+      "min_samples_leaf": 6,
+      "max_features": null,
+      "bootstrap": true,
+      "criterion": "entropy"
+    },
+    "max_rows": null
+  },
+  "bank_marketing/random_forest/pairwise": {
+    "dataset": "bank_marketing",
+    "model": "random_forest",
+    "optimizer": "pairwise",
+    "requested_trials": 10,
+    "objective_evaluations": 10,
+    "completed_trials": 10,
+    "best_validation_macro_f1": 0.750405006863857,
+    "best_parameters": {
+      "n_estimators": 50,
+      "max_depth": 24,
+      "min_samples_split": 7,
+      "min_samples_leaf": 1,
+      "max_features": null,
+      "bootstrap": true,
+      "criterion": "gini"
+    },
+    "max_rows": null
+  },
+  "bank_marketing/xgboost/random_search": {
+    "dataset": "bank_marketing",
+    "model": "xgboost",
+    "optimizer": "random_search",
+    "requested_trials": 10,
+    "objective_evaluations": 10,
+    "completed_trials": 10,
+    "best_validation_macro_f1": 0.7605017029661549,
+    "best_parameters": {
+      "n_estimators": 142,
+      "max_depth": 6,
+      "learning_rate": 0.2,
+      "min_child_weight": 2,
+      "subsample": 0.7,
+      "colsample_bytree": 1.0
+    },
+    "max_rows": null
+  },
+  "bank_marketing/xgboost/optuna_tpe": {
+    "dataset": "bank_marketing",
+    "model": "xgboost",
+    "optimizer": "optuna_tpe",
+    "requested_trials": 10,
+    "objective_evaluations": 10,
+    "completed_trials": 10,
+    "best_validation_macro_f1": 0.7564641294079086,
+    "best_parameters": {
+      "n_estimators": 96,
+      "max_depth": 5,
+      "learning_rate": 0.2,
+      "min_child_weight": 5,
+      "subsample": 1.0,
+      "colsample_bytree": 0.85
+    },
+    "max_rows": null
+  },
+  "bank_marketing/xgboost/grid_search": {
+    "dataset": "bank_marketing",
+    "model": "xgboost",
+    "optimizer": "grid_search",
+    "requested_trials": 10,
+    "objective_evaluations": 10,
+    "completed_trials": 10,
+    "best_validation_macro_f1": 0.5868864621972484,
+    "best_parameters": {
+      "n_estimators": 50,
+      "max_depth": 3,
+      "learning_rate": 0.03,
+      "min_child_weight": 1,
+      "subsample": 1.0,
+      "colsample_bytree": 1.0
+    },
+    "max_rows": null
+  },
+  "bank_marketing/xgboost/hyperopt_tpe": {
+    "dataset": "bank_marketing",
+    "model": "xgboost",
+    "optimizer": "hyperopt_tpe",
+    "requested_trials": 10,
+    "objective_evaluations": 10,
+    "completed_trials": 10,
+    "best_validation_macro_f1": 0.7560348878653658,
+    "best_parameters": {
+      "colsample_bytree": 1.0,
+      "learning_rate": 0.1,
+      "max_depth": 8,
+      "min_child_weight": 6,
+      "n_estimators": 82,
+      "subsample": 0.85
+    },
+    "max_rows": null
+  },
+  "bank_marketing/xgboost/gaussian_process": {
+    "dataset": "bank_marketing",
+    "model": "xgboost",
+    "optimizer": "gaussian_process",
+    "requested_trials": 10,
+    "objective_evaluations": 10,
+    "completed_trials": 10,
+    "best_validation_macro_f1": 0.7560755343813574,
+    "best_parameters": {
+      "n_estimators": 169,
+      "max_depth": 4,
+      "learning_rate": 0.2,
+      "min_child_weight": 6,
+      "subsample": 0.85,
+      "colsample_bytree": 0.7
+    },
+    "max_rows": null
+  },
+  "bank_marketing/xgboost/smac3": {
+    "dataset": "bank_marketing",
+    "model": "xgboost",
+    "optimizer": "smac3",
+    "requested_trials": 10,
+    "objective_evaluations": 10,
+    "completed_trials": 10,
+    "best_validation_macro_f1": 0.755210088727482,
+    "best_parameters": {
+      "colsample_bytree": 1.0,
+      "learning_rate": 0.2,
+      "max_depth": 4,
+      "min_child_weight": 10,
+      "n_estimators": 168,
+      "subsample": 0.7
+    },
+    "max_rows": null
+  },
+  "bank_marketing/xgboost/cma_es": {
+    "dataset": "bank_marketing",
+    "model": "xgboost",
+    "optimizer": "cma_es",
+    "requested_trials": 10,
+    "objective_evaluations": 10,
+    "completed_trials": 10,
+    "best_validation_macro_f1": 0.757304160104246,
+    "best_parameters": {
+      "n_estimators": 125,
+      "max_depth": 6,
+      "learning_rate": 0.1,
+      "min_child_weight": 6,
+      "subsample": 0.85,
+      "colsample_bytree": 0.85
+    },
+    "max_rows": null
+  },
+  "bank_marketing/xgboost/genetic_algorithm": {
+    "dataset": "bank_marketing",
+    "model": "xgboost",
+    "optimizer": "genetic_algorithm",
+    "requested_trials": 10,
+    "objective_evaluations": 10,
+    "completed_trials": 10,
+    "best_validation_macro_f1": 0.759024830837196,
+    "best_parameters": {
+      "n_estimators": 78,
+      "max_depth": 9,
+      "learning_rate": 0.2,
+      "min_child_weight": 5,
+      "subsample": 0.7,
+      "colsample_bytree": 1.0
+    },
+    "max_rows": null
+  },
+  "bank_marketing/xgboost/successive_halving": {
+    "dataset": "bank_marketing",
+    "model": "xgboost",
+    "optimizer": "successive_halving",
+    "requested_trials": 10,
+    "objective_evaluations": 10,
+    "completed_trials": 10,
+    "best_validation_macro_f1": 0.6948329623007616,
+    "best_parameters": {
+      "n_estimators": 16,
+      "max_depth": 4,
+      "learning_rate": 0.2,
+      "min_child_weight": 9,
+      "subsample": 0.7,
+      "colsample_bytree": 1.0
+    },
+    "max_rows": null
+  },
+  "bank_marketing/xgboost/hyperband": {
+    "dataset": "bank_marketing",
+    "model": "xgboost",
+    "optimizer": "hyperband",
+    "requested_trials": 10,
+    "objective_evaluations": 10,
+    "completed_trials": 10,
+    "best_validation_macro_f1": 0.7389266192470332,
+    "best_parameters": {
+      "n_estimators": 78,
+      "max_depth": 3,
+      "learning_rate": 0.2,
+      "min_child_weight": 5,
+      "subsample": 0.7,
+      "colsample_bytree": 0.7
+    },
+    "max_rows": null
+  },
+  "bank_marketing/xgboost/pairwise": {
+    "dataset": "bank_marketing",
+    "model": "xgboost",
+    "optimizer": "pairwise",
+    "requested_trials": 10,
+    "objective_evaluations": 10,
+    "completed_trials": 10,
+    "best_validation_macro_f1": 0.7558125383299465,
+    "best_parameters": {
+      "n_estimators": 200,
+      "max_depth": 6,
+      "learning_rate": 0.1,
+      "min_child_weight": 10,
+      "subsample": 0.7,
+      "colsample_bytree": 1.0
+    },
+    "max_rows": null
+  },
+  "bank_marketing/lightgbm/random_search": {
+    "dataset": "bank_marketing",
+    "model": "lightgbm",
+    "optimizer": "random_search",
+    "requested_trials": 10,
+    "objective_evaluations": 10,
+    "completed_trials": 10,
+    "best_validation_macro_f1": 0.7600414680223717,
+    "best_parameters": {
+      "n_estimators": 324,
+      "max_depth": -1,
+      "learning_rate": 0.1,
+      "num_leaves": 25,
+      "min_child_samples": 75,
+      "subsample": 0.85,
+      "subsample_freq": 5,
+      "colsample_bytree": 1.0,
+      "reg_alpha": 0.0,
+      "reg_lambda": 1.0
+    },
+    "max_rows": null
+  },
+  "bank_marketing/lightgbm/optuna_tpe": {
+    "dataset": "bank_marketing",
+    "model": "lightgbm",
+    "optimizer": "optuna_tpe",
+    "requested_trials": 10,
+    "objective_evaluations": 10,
+    "completed_trials": 10,
+    "best_validation_macro_f1": 0.7564528784222414,
+    "best_parameters": {
+      "n_estimators": 89,
+      "max_depth": 16,
+      "learning_rate": 0.2,
+      "num_leaves": 23,
+      "min_child_samples": 99,
+      "subsample": 0.7,
+      "subsample_freq": 1,
+      "colsample_bytree": 0.85,
+      "reg_alpha": 1.0,
+      "reg_lambda": 0.0
+    },
+    "max_rows": null
+  },
+  "bank_marketing/lightgbm/grid_search": {
+    "dataset": "bank_marketing",
+    "model": "lightgbm",
+    "optimizer": "grid_search",
+    "requested_trials": 10,
+    "objective_evaluations": 10,
+    "completed_trials": 10,
+    "best_validation_macro_f1": 0.4689115113547377,
+    "best_parameters": {
+      "n_estimators": 50,
+      "max_depth": -1,
+      "learning_rate": 0.01,
+      "num_leaves": 15,
+      "min_child_samples": 5,
+      "subsample": 0.7,
+      "subsample_freq": 1,
+      "colsample_bytree": 0.7,
+      "reg_alpha": 0.0,
+      "reg_lambda": 0.0
+    },
+    "max_rows": null
+  },
+  "bank_marketing/lightgbm/hyperopt_tpe": {
+    "dataset": "bank_marketing",
+    "model": "lightgbm",
+    "optimizer": "hyperopt_tpe",
+    "requested_trials": 10,
+    "objective_evaluations": 10,
+    "completed_trials": 10,
+    "best_validation_macro_f1": 0.7603402160469381,
+    "best_parameters": {
+      "colsample_bytree": 1.0,
+      "learning_rate": 0.05,
+      "max_depth": 12,
+      "min_child_samples": 91,
+      "n_estimators": 375,
+      "num_leaves": 64,
+      "reg_alpha": 0.0,
+      "reg_lambda": 0.1,
+      "subsample": 1.0,
+      "subsample_freq": 5
+    },
+    "max_rows": null
+  },
+  "bank_marketing/lightgbm/gaussian_process": {
+    "dataset": "bank_marketing",
+    "model": "lightgbm",
+    "optimizer": "gaussian_process",
+    "requested_trials": 10,
+    "objective_evaluations": 10,
+    "completed_trials": 10,
+    "best_validation_macro_f1": 0.7550053070516984,
+    "best_parameters": {
+      "n_estimators": 386,
+      "max_depth": 8,
+      "learning_rate": 0.05,
+      "num_leaves": 123,
+      "min_child_samples": 63,
+      "subsample": 0.7,
+      "subsample_freq": 1,
+      "colsample_bytree": 0.7,
+      "reg_alpha": 0.0,
+      "reg_lambda": 0.1
+    },
+    "max_rows": null
+  },
+  "bank_marketing/lightgbm/smac3": {
+    "dataset": "bank_marketing",
+    "model": "lightgbm",
+    "optimizer": "smac3",
+    "requested_trials": 10,
+    "objective_evaluations": 10,
+    "completed_trials": 10,
+    "best_validation_macro_f1": 0.7535340912021433,
+    "best_parameters": {
+      "colsample_bytree": 0.7,
+      "learning_rate": 0.05,
+      "max_depth": -1,
+      "min_child_samples": 93,
+      "n_estimators": 422,
+      "num_leaves": 73,
+      "reg_alpha": 0.0,
+      "reg_lambda": 0.0,
+      "subsample": 0.7,
+      "subsample_freq": 5
+    },
+    "max_rows": null
+  },
+  "bank_marketing/lightgbm/cma_es": {
+    "dataset": "bank_marketing",
+    "model": "lightgbm",
+    "optimizer": "cma_es",
+    "requested_trials": 10,
+    "objective_evaluations": 10,
+    "completed_trials": 10,
+    "best_validation_macro_f1": 0.7558125383299465,
+    "best_parameters": {
+      "n_estimators": 275,
+      "max_depth": 8,
+      "learning_rate": 0.05,
+      "num_leaves": 71,
+      "min_child_samples": 52,
+      "subsample": 0.85,
+      "subsample_freq": 1,
+      "colsample_bytree": 0.85,
+      "reg_alpha": 0.0,
+      "reg_lambda": 0.1
+    },
+    "max_rows": null
+  },
+  "bank_marketing/lightgbm/genetic_algorithm": {
+    "dataset": "bank_marketing",
+    "model": "lightgbm",
+    "optimizer": "genetic_algorithm",
+    "requested_trials": 10,
+    "objective_evaluations": 10,
+    "completed_trials": 10,
+    "best_validation_macro_f1": 0.7562245165336807,
+    "best_parameters": {
+      "n_estimators": 396,
+      "max_depth": 16,
+      "learning_rate": 0.2,
+      "num_leaves": 26,
+      "min_child_samples": 80,
+      "subsample": 0.85,
+      "subsample_freq": 1,
+      "colsample_bytree": 1.0,
+      "reg_alpha": 0.0,
+      "reg_lambda": 0.0
+    },
+    "max_rows": null
+  },
+  "bank_marketing/lightgbm/successive_halving": {
+    "dataset": "bank_marketing",
+    "model": "lightgbm",
+    "optimizer": "successive_halving",
+    "requested_trials": 10,
+    "objective_evaluations": 10,
+    "completed_trials": 10,
+    "best_validation_macro_f1": 0.7208127797811855,
+    "best_parameters": {
+      "n_estimators": 16,
+      "max_depth": 16,
+      "learning_rate": 0.2,
+      "num_leaves": 26,
+      "min_child_samples": 80,
+      "subsample": 0.85,
+      "subsample_freq": 1,
+      "colsample_bytree": 0.7,
+      "reg_alpha": 0.0,
+      "reg_lambda": 0.0
+    },
+    "max_rows": null
+  },
+  "bank_marketing/lightgbm/hyperband": {
+    "dataset": "bank_marketing",
+    "model": "lightgbm",
+    "optimizer": "hyperband",
+    "requested_trials": 10,
+    "objective_evaluations": 10,
+    "completed_trials": 10,
+    "best_validation_macro_f1": 0.7431717148690327,
+    "best_parameters": {
+      "n_estimators": 25,
+      "max_depth": 16,
+      "learning_rate": 0.2,
+      "num_leaves": 26,
+      "min_child_samples": 80,
+      "subsample": 0.85,
+      "subsample_freq": 1,
+      "colsample_bytree": 0.7,
+      "reg_alpha": 0.0,
+      "reg_lambda": 0.0
+    },
+    "max_rows": null
+  },
+  "bank_marketing/lightgbm/pairwise": {
+    "dataset": "bank_marketing",
+    "model": "lightgbm",
+    "optimizer": "pairwise",
+    "requested_trials": 10,
+    "objective_evaluations": 10,
+    "completed_trials": 10,
+    "best_validation_macro_f1": 0.7552515115849472,
+    "best_parameters": {
+      "n_estimators": 500,
+      "max_depth": 16,
+      "learning_rate": 0.03,
+      "num_leaves": 71,
+      "min_child_samples": 52,
+      "subsample": 0.7,
+      "subsample_freq": 5,
+      "colsample_bytree": 0.7,
+      "reg_alpha": 1.0,
+      "reg_lambda": 1.0
+    },
+    "max_rows": null
+  }
+}
