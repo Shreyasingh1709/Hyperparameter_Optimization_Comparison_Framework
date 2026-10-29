@@ -163,6 +163,17 @@ def test_cma_es_does_not_evaluate_beyond_requested_budget():
     assert len(results) == 3
 
 
+def test_cma_es_honors_ten_trial_budget_with_flat_fitness():
+    evaluator = lambda parameters: {
+        "status": "completed",
+        "validation_macro_f1": 0.5,
+    }
+
+    results = cma_run(SEARCH_SPACE, evaluator, trials=10, seed=7)
+
+    assert len(results) == 10
+
+
 def test_resource_optimizers_use_the_requested_budget():
     evaluator = lambda parameters: {
         "status": "completed",
