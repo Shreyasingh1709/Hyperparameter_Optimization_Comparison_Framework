@@ -1,0 +1,54 @@
+{
+  "created_at_utc": "2026-10-29T08:13:00.898736+00:00",
+  "python": "3.10.0 (tags/v3.10.0:b494f59, Oct  4 2021, 19:00:18) [MSC v.1929 64 bit (AMD64)]",
+  "executable": "C:\\Users\\shrey\\AppData\\Local\\Programs\\Python\\Python310\\python.exe",
+  "platform": "Windows-10-10.0.26200-SP0",
+  "seed": 42,
+  "dataset": "adult",
+  "model": "xgboost",
+  "optimizer": "pairwise",
+  "trials": 10,
+  "max_rows": null,
+  "search_space": {
+    "n_estimators": [
+      "int",
+      50,
+      200
+    ],
+    "max_depth": [
+      "int",
+      3,
+      10
+    ],
+    "learning_rate": [
+      "choice",
+      [
+        0.03,
+        0.1,
+        0.2
+      ]
+    ],
+    "min_child_weight": [
+      "int",
+      1,
+      10
+    ],
+    "subsample": [
+      "choice",
+      [
+        0.7,
+        0.85,
+        1.0
+      ]
+    ],
+    "colsample_bytree": [
+      "choice",
+      [
+        0.7,
+        0.85,
+        1.0
+      ]
+    ]
+  },
+  "test_set_used_during_optimization": false
+}

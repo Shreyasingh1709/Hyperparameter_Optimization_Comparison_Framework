@@ -1,0 +1,206 @@
+{
+  "stats": {
+    "submitted": 10,
+    "finished": 10,
+    "running": 0
+  },
+  "data": [
+    {
+      "config_id": 1,
+      "instance": null,
+      "seed": 1608637542,
+      "budget": null,
+      "cost": -0.8041901441334869,
+      "time": 3.342672109603882,
+      "cpu_time": 3.109375,
+      "status": 1,
+      "starttime": 1793261367.0563297,
+      "endtime": 1793261370.4039507,
+      "additional_info": {}
+    },
+    {
+      "config_id": 1,
+      "instance": null,
+      "seed": 1273642419,
+      "budget": null,
+      "cost": -0.8041901441334869,
+      "time": 3.091569423675537,
+      "cpu_time": 3.015625,
+      "status": 1,
+      "starttime": 1793261370.4234045,
+      "endtime": 1793261373.520136,
+      "additional_info": {}
+    },
+    {
+      "config_id": 2,
+      "instance": null,
+      "seed": 1608637542,
+      "budget": null,
+      "cost": -0.8273241841437706,
+      "time": 4.337281703948975,
+      "cpu_time": 3.890625,
+      "status": 1,
+      "starttime": 1793261373.5425766,
+      "endtime": 1793261377.885854,
+      "additional_info": {}
+    },
+    {
+      "config_id": 2,
+      "instance": null,
+      "seed": 1273642419,
+      "budget": null,
+      "cost": -0.8273241841437706,
+      "time": 4.362691402435303,
+      "cpu_time": 3.546875,
+      "status": 1,
+      "starttime": 1793261377.899413,
+      "endtime": 1793261382.2682836,
+      "additional_info": {}
+    },
+    {
+      "config_id": 2,
+      "instance": null,
+      "seed": 1935803228,
+      "budget": null,
+      "cost": -0.8273241841437706,
+      "time": 3.877748489379883,
+      "cpu_time": 3.421875,
+      "status": 1,
+      "starttime": 1793261382.3009624,
+      "endtime": 1793261386.1867113,
+      "additional_info": {}
+    },
+    {
+      "config_id": 3,
+      "instance": null,
+      "seed": 1608637542,
+      "budget": null,
+      "cost": -0.7994142161270397,
+      "time": 3.978908061981201,
+      "cpu_time": 3.765625,
+      "status": 1,
+      "starttime": 1793261391.5817297,
+      "endtime": 1793261395.5644164,
+      "additional_info": {}
+    },
+    {
+      "config_id": 4,
+      "instance": null,
+      "seed": 1608637542,
+      "budget": null,
+      "cost": -0.8193929941702425,
+      "time": 4.97766637802124,
+      "cpu_time": 4.421875,
+      "status": 1,
+      "starttime": 1793261395.5820055,
+      "endtime": 1793261400.5680692,
+      "additional_info": {}
+    },
+    {
+      "config_id": 5,
+      "instance": null,
+      "seed": 1608637542,
+      "budget": null,
+      "cost": -0.8109221859221859,
+      "time": 4.626404047012329,
+      "cpu_time": 4.171875,
+      "status": 1,
+      "starttime": 1793261400.587798,
+      "endtime": 1793261405.2177756,
+      "additional_info": {}
+    },
+    {
+      "config_id": 6,
+      "instance": null,
+      "seed": 1608637542,
+      "budget": null,
+      "cost": -0.8031616133183515,
+      "time": 3.9299285411834717,
+      "cpu_time": 3.625,
+      "status": 1,
+      "starttime": 1793261405.242083,
+      "endtime": 1793261409.176055,
+      "additional_info": {}
+    },
+    {
+      "config_id": 7,
+      "instance": null,
+      "seed": 1608637542,
+      "budget": null,
+      "cost": -0.8023887625965186,
+      "time": 3.414619207382202,
+      "cpu_time": 3.265625,
+      "status": 1,
+      "starttime": 1793261409.1939962,
+      "endtime": 1793261412.6115088,
+      "additional_info": {}
+    }
+  ],
+  "configs": {
+    "1": {
+      "colsample_bytree": 1.0,
+      "learning_rate": 0.03,
+      "max_depth": 10,
+      "min_child_weight": 5,
+      "n_estimators": 78,
+      "subsample": 1.0
+    },
+    "2": {
+      "colsample_bytree": 0.7,
+      "learning_rate": 0.2,
+      "max_depth": 5,
+      "min_child_weight": 9,
+      "n_estimators": 176,
+      "subsample": 0.85
+    },
+    "3": {
+      "colsample_bytree": 0.7,
+      "learning_rate": 0.03,
+      "max_depth": 4,
+      "min_child_weight": 9,
+      "n_estimators": 198,
+      "subsample": 0.85
+    },
+    "4": {
+      "colsample_bytree": 0.85,
+      "learning_rate": 0.03,
+      "max_depth": 7,
+      "min_child_weight": 7,
+      "n_estimators": 193,
+      "subsample": 0.7
+    },
+    "5": {
+      "colsample_bytree": 0.7,
+      "learning_rate": 0.03,
+      "max_depth": 6,
+      "min_child_weight": 7,
+      "n_estimators": 182,
+      "subsample": 0.85
+    },
+    "6": {
+      "colsample_bytree": 0.85,
+      "learning_rate": 0.03,
+      "max_depth": 5,
+      "min_child_weight": 9,
+      "n_estimators": 162,
+      "subsample": 0.7
+    },
+    "7": {
+      "colsample_bytree": 0.7,
+      "learning_rate": 0.03,
+      "max_depth": 10,
+      "min_child_weight": 8,
+      "n_estimators": 75,
+      "subsample": 0.85
+    }
+  },
+  "config_origins": {
+    "1": "Initial Design: Sobol",
+    "2": "Initial Design: Sobol",
+    "3": "Acquisition Function Maximizer: Local Search",
+    "4": "Acquisition Function Maximizer: Local Search",
+    "5": "Acquisition Function Maximizer: Local Search",
+    "6": "Acquisition Function Maximizer: Local Search",
+    "7": "Random Search"
+  }
+}

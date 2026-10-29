@@ -1,0 +1,409 @@
+{
+  "adult/random_forest/random_search": {
+    "dataset": "adult",
+    "model": "random_forest",
+    "optimizer": "random_search",
+    "requested_trials": 10,
+    "objective_evaluations": 10,
+    "completed_trials": 10,
+    "best_validation_macro_f1": 0.810686667829525,
+    "best_parameters": {
+      "n_estimators": 67,
+      "max_depth": null,
+      "min_samples_split": 12,
+      "min_samples_leaf": 6,
+      "max_features": null,
+      "bootstrap": true,
+      "criterion": "entropy"
+    },
+    "max_rows": null
+  },
+  "adult/random_forest/optuna_tpe": {
+    "dataset": "adult",
+    "model": "random_forest",
+    "optimizer": "optuna_tpe",
+    "requested_trials": 10,
+    "objective_evaluations": 10,
+    "completed_trials": 10,
+    "best_validation_macro_f1": 0.8137776146408546,
+    "best_parameters": {
+      "n_estimators": 52,
+      "max_depth": 16,
+      "min_samples_split": 7,
+      "min_samples_leaf": 6,
+      "max_features": null,
+      "bootstrap": true,
+      "criterion": "gini"
+    },
+    "max_rows": null
+  },
+  "adult/random_forest/grid_search": {
+    "dataset": "adult",
+    "model": "random_forest",
+    "optimizer": "grid_search",
+    "requested_trials": 10,
+    "objective_evaluations": 10,
+    "completed_trials": 10,
+    "best_validation_macro_f1": 0.7989289565463821,
+    "best_parameters": {
+      "n_estimators": 50,
+      "max_depth": null,
+      "min_samples_split": 2,
+      "min_samples_leaf": 1,
+      "max_features": null,
+      "bootstrap": true,
+      "criterion": "entropy"
+    },
+    "max_rows": null
+  },
+  "adult/random_forest/hyperopt_tpe": {
+    "dataset": "adult",
+    "model": "random_forest",
+    "optimizer": "hyperopt_tpe",
+    "requested_trials": 10,
+    "objective_evaluations": 10,
+    "completed_trials": 10,
+    "best_validation_macro_f1": 0.8070422361725484,
+    "best_parameters": {
+      "bootstrap": false,
+      "criterion": "entropy",
+      "max_depth": 24,
+      "max_features": "sqrt",
+      "min_samples_leaf": 1,
+      "min_samples_split": 12,
+      "n_estimators": 120
+    },
+    "max_rows": null
+  },
+  "adult/random_forest/cma_es": {
+    "dataset": "adult",
+    "model": "random_forest",
+    "optimizer": "cma_es",
+    "requested_trials": 10,
+    "objective_evaluations": 10,
+    "completed_trials": 10,
+    "best_validation_macro_f1": 0.7875860358176856,
+    "best_parameters": {
+      "n_estimators": 100,
+      "max_depth": 16,
+      "min_samples_split": 7,
+      "min_samples_leaf": 3,
+      "max_features": "log2",
+      "bootstrap": true,
+      "criterion": "gini"
+    },
+    "max_rows": null
+  },
+  "adult/random_forest/genetic_algorithm": {
+    "dataset": "adult",
+    "model": "random_forest",
+    "optimizer": "genetic_algorithm",
+    "requested_trials": 10,
+    "objective_evaluations": 10,
+    "completed_trials": 10,
+    "best_validation_macro_f1": 0.810686667829525,
+    "best_parameters": {
+      "n_estimators": 67,
+      "max_depth": null,
+      "min_samples_split": 12,
+      "min_samples_leaf": 6,
+      "max_features": null,
+      "bootstrap": true,
+      "criterion": "entropy"
+    },
+    "max_rows": null
+  },
+  "adult/random_forest/successive_halving": {
+    "dataset": "adult",
+    "model": "random_forest",
+    "optimizer": "successive_halving",
+    "requested_trials": 10,
+    "objective_evaluations": 10,
+    "completed_trials": 10,
+    "best_validation_macro_f1": 0.8062555463251355,
+    "best_parameters": {
+      "n_estimators": 16,
+      "max_depth": null,
+      "min_samples_split": 12,
+      "min_samples_leaf": 6,
+      "max_features": null,
+      "bootstrap": true,
+      "criterion": "entropy"
+    },
+    "max_rows": null
+  },
+  "adult/random_forest/hyperband": {
+    "dataset": "adult",
+    "model": "random_forest",
+    "optimizer": "hyperband",
+    "requested_trials": 10,
+    "objective_evaluations": 10,
+    "completed_trials": 10,
+    "best_validation_macro_f1": 0.8075434975128543,
+    "best_parameters": {
+      "n_estimators": 25,
+      "max_depth": null,
+      "min_samples_split": 12,
+      "min_samples_leaf": 6,
+      "max_features": null,
+      "bootstrap": true,
+      "criterion": "entropy"
+    },
+    "max_rows": null
+  },
+  "adult/random_forest/pairwise": {
+    "dataset": "adult",
+    "model": "random_forest",
+    "optimizer": "pairwise",
+    "requested_trials": 10,
+    "objective_evaluations": 10,
+    "completed_trials": 10,
+    "best_validation_macro_f1": 0.8138893846988529,
+    "best_parameters": {
+      "n_estimators": 100,
+      "max_depth": 16,
+      "min_samples_split": 12,
+      "min_samples_leaf": 6,
+      "max_features": null,
+      "bootstrap": true,
+      "criterion": "entropy"
+    },
+    "max_rows": null
+  },
+  "adult/random_forest/gaussian_process": {
+    "dataset": "adult",
+    "model": "random_forest",
+    "optimizer": "gaussian_process",
+    "requested_trials": 10,
+    "objective_evaluations": 10,
+    "completed_trials": 10,
+    "best_validation_macro_f1": 0.8038720757469582,
+    "best_parameters": {
+      "n_estimators": 97,
+      "max_depth": 24,
+      "min_samples_split": 9,
+      "min_samples_leaf": 3,
+      "max_features": "sqrt",
+      "bootstrap": false,
+      "criterion": "entropy"
+    },
+    "max_rows": null
+  },
+  "adult/random_forest/smac3": {
+    "dataset": "adult",
+    "model": "random_forest",
+    "optimizer": "smac3",
+    "requested_trials": 10,
+    "objective_evaluations": 10,
+    "completed_trials": 10,
+    "best_validation_macro_f1": 0.8116720573067453,
+    "best_parameters": {
+      "bootstrap": true,
+      "criterion": "entropy",
+      "max_depth": 24,
+      "max_features": null,
+      "min_samples_leaf": 2,
+      "min_samples_split": 6,
+      "n_estimators": 133
+    },
+    "max_rows": null
+  },
+  "adult/xgboost/random_search": {
+    "dataset": "adult",
+    "model": "xgboost",
+    "optimizer": "random_search",
+    "requested_trials": 10,
+    "objective_evaluations": 10,
+    "completed_trials": 10,
+    "best_validation_macro_f1": 0.8251963594157554,
+    "best_parameters": {
+      "n_estimators": 89,
+      "max_depth": 6,
+      "learning_rate": 0.1,
+      "min_child_weight": 2,
+      "subsample": 0.7,
+      "colsample_bytree": 0.85
+    },
+    "max_rows": null
+  },
+  "adult/xgboost/optuna_tpe": {
+    "dataset": "adult",
+    "model": "xgboost",
+    "optimizer": "optuna_tpe",
+    "requested_trials": 10,
+    "objective_evaluations": 10,
+    "completed_trials": 10,
+    "best_validation_macro_f1": 0.8252593917710197,
+    "best_parameters": {
+      "n_estimators": 175,
+      "max_depth": 4,
+      "learning_rate": 0.2,
+      "min_child_weight": 6,
+      "subsample": 1.0,
+      "colsample_bytree": 1.0
+    },
+    "max_rows": null
+  },
+  "adult/xgboost/grid_search": {
+    "dataset": "adult",
+    "model": "xgboost",
+    "optimizer": "grid_search",
+    "requested_trials": 10,
+    "objective_evaluations": 10,
+    "completed_trials": 10,
+    "best_validation_macro_f1": 0.7635032361866954,
+    "best_parameters": {
+      "n_estimators": 50,
+      "max_depth": 3,
+      "learning_rate": 0.03,
+      "min_child_weight": 1,
+      "subsample": 0.85,
+      "colsample_bytree": 0.7
+    },
+    "max_rows": null
+  },
+  "adult/xgboost/hyperopt_tpe": {
+    "dataset": "adult",
+    "model": "xgboost",
+    "optimizer": "hyperopt_tpe",
+    "requested_trials": 10,
+    "objective_evaluations": 10,
+    "completed_trials": 10,
+    "best_validation_macro_f1": 0.8235199070416233,
+    "best_parameters": {
+      "colsample_bytree": 1.0,
+      "learning_rate": 0.1,
+      "max_depth": 8,
+      "min_child_weight": 6,
+      "n_estimators": 82,
+      "subsample": 0.85
+    },
+    "max_rows": null
+  },
+  "adult/xgboost/gaussian_process": {
+    "dataset": "adult",
+    "model": "xgboost",
+    "optimizer": "gaussian_process",
+    "requested_trials": 10,
+    "objective_evaluations": 10,
+    "completed_trials": 10,
+    "best_validation_macro_f1": 0.8246433841007867,
+    "best_parameters": {
+      "n_estimators": 135,
+      "max_depth": 3,
+      "learning_rate": 0.2,
+      "min_child_weight": 5,
+      "subsample": 0.85,
+      "colsample_bytree": 1.0
+    },
+    "max_rows": null
+  },
+  "adult/xgboost/smac3": {
+    "dataset": "adult",
+    "model": "xgboost",
+    "optimizer": "smac3",
+    "requested_trials": 10,
+    "objective_evaluations": 10,
+    "completed_trials": 10,
+    "best_validation_macro_f1": 0.8273241841437706,
+    "best_parameters": {
+      "colsample_bytree": 0.7,
+      "learning_rate": 0.2,
+      "max_depth": 5,
+      "min_child_weight": 9,
+      "n_estimators": 176,
+      "subsample": 0.85
+    },
+    "max_rows": null
+  },
+  "adult/xgboost/cma_es": {
+    "dataset": "adult",
+    "model": "xgboost",
+    "optimizer": "cma_es",
+    "requested_trials": 10,
+    "objective_evaluations": 10,
+    "completed_trials": 10,
+    "best_validation_macro_f1": 0.8271502775056109,
+    "best_parameters": {
+      "n_estimators": 125,
+      "max_depth": 7,
+      "learning_rate": 0.1,
+      "min_child_weight": 6,
+      "subsample": 0.85,
+      "colsample_bytree": 0.85
+    },
+    "max_rows": null
+  },
+  "adult/xgboost/genetic_algorithm": {
+    "dataset": "adult",
+    "model": "xgboost",
+    "optimizer": "genetic_algorithm",
+    "requested_trials": 10,
+    "objective_evaluations": 10,
+    "completed_trials": 10,
+    "best_validation_macro_f1": 0.8242439525846883,
+    "best_parameters": {
+      "n_estimators": 179,
+      "max_depth": 3,
+      "learning_rate": 0.2,
+      "min_child_weight": 4,
+      "subsample": 1.0,
+      "colsample_bytree": 1.0
+    },
+    "max_rows": null
+  },
+  "adult/xgboost/successive_halving": {
+    "dataset": "adult",
+    "model": "xgboost",
+    "optimizer": "successive_halving",
+    "requested_trials": 10,
+    "objective_evaluations": 10,
+    "completed_trials": 10,
+    "best_validation_macro_f1": 0.7916010102624764,
+    "best_parameters": {
+      "n_estimators": 16,
+      "max_depth": 4,
+      "learning_rate": 0.2,
+      "min_child_weight": 9,
+      "subsample": 0.7,
+      "colsample_bytree": 1.0
+    },
+    "max_rows": null
+  },
+  "adult/xgboost/hyperband": {
+    "dataset": "adult",
+    "model": "xgboost",
+    "optimizer": "hyperband",
+    "requested_trials": 10,
+    "objective_evaluations": 10,
+    "completed_trials": 10,
+    "best_validation_macro_f1": 0.8150805520322587,
+    "best_parameters": {
+      "n_estimators": 78,
+      "max_depth": 3,
+      "learning_rate": 0.2,
+      "min_child_weight": 5,
+      "subsample": 0.7,
+      "colsample_bytree": 0.7
+    },
+    "max_rows": null
+  },
+  "adult/xgboost/pairwise": {
+    "dataset": "adult",
+    "model": "xgboost",
+    "optimizer": "pairwise",
+    "requested_trials": 10,
+    "objective_evaluations": 10,
+    "completed_trials": 10,
+    "best_validation_macro_f1": 0.8259954617727119,
+    "best_parameters": {
+      "n_estimators": 125,
+      "max_depth": 6,
+      "learning_rate": 0.1,
+      "min_child_weight": 1,
+      "subsample": 1.0,
+      "colsample_bytree": 0.7
+    },
+    "max_rows": null
+  }
+}
