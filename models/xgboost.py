@@ -23,6 +23,7 @@ def build_model(parameters: dict[str, Any], categorical_columns: tuple[str, ...]
     model_parameters = dict(parameters)
     numeric_columns = model_parameters.pop("_numeric_columns", [])
     seed = model_parameters.pop("_seed", 42)
+    num_classes = model_parameters.pop("_num_classes", 2)
     preprocessor = ColumnTransformer(
         transformers=[
             ("numeric", SimpleImputer(strategy="median"), numeric_columns),
@@ -41,7 +42,8 @@ def build_model(parameters: dict[str, Any], categorical_columns: tuple[str, ...]
     )
     model = XGBClassifier(
         **model_parameters,
-        objective="binary:logistic",
+        objective="binary:logistic" if num_classes == 2 else "multi:softprob",
+        num_class=num_classes if num_classes > 2 else None,
         eval_metric="logloss",
         random_state=seed,
         n_jobs=1,

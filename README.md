@@ -11,6 +11,14 @@ In VS Code, select:
 
 PowerShell commands:
 
+```
+
+Dry Bean uses the UCI `Dry_Bean_Dataset.xlsx` and writes isolated results to
+`results/dry_bean/`:
+
+```powershell
+py -3.10 main.py --dataset dry_bean --model lightgbm --optimizer random_search --trials 10
+py -3.10 main.py --dataset dry_bean --model lightgbm --final-evaluate
 ```powershell
 py -3.10 -m pytest -q
 py -3.10 main.py --optimizer random_search --trials 10

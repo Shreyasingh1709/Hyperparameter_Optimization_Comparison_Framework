@@ -13,3 +13,4 @@ scikit-optimize
 smac
 cma
 deap
+openpyxl

@@ -24,6 +24,7 @@ def build_model(parameters: dict[str, Any], categorical_columns: tuple[str, ...]
     model_parameters = dict(parameters)
     numeric_columns = model_parameters.pop("_numeric_columns", [])
     seed = model_parameters.pop("_seed", 42)
+    model_parameters.pop("_num_classes", None)
     preprocessor = ColumnTransformer(
         transformers=[
             ("numeric", SimpleImputer(strategy="median"), numeric_columns),

@@ -34,6 +34,7 @@ def _build_model(
         context.X_train.select_dtypes(exclude=["object", "category"]).columns
     )
     clean_parameters["_seed"] = context.seed
+    clean_parameters["_num_classes"] = context.y_train.astype(str).nunique()
     if context.model_name == "random_forest":
         return (
             build_random_forest(clean_parameters, context.categorical_columns),

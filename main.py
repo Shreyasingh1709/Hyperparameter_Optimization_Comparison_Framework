@@ -22,7 +22,7 @@ def main() -> None:
     )
     parser.add_argument(
         "--dataset",
-        choices=["adult", "bank_marketing"],
+        choices=["adult", "bank_marketing", "dry_bean"],
         default="adult",
     )
     parser.add_argument(

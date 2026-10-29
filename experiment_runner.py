@@ -15,6 +15,12 @@ from config import (
     BANK_RESULTS_DIR,
     BANK_SUMMARY_PATH,
     BANK_TRIAL_RESULTS_PATH,
+    DRY_BEAN_BEST_CONFIGS_PATH,
+    DRY_BEAN_FINAL_RESULTS_PATH,
+    DRY_BEAN_METADATA_PATH,
+    DRY_BEAN_RESULTS_DIR,
+    DRY_BEAN_SUMMARY_PATH,
+    DRY_BEAN_TRIAL_RESULTS_PATH,
     METADATA_PATH,
     RANDOM_SEED,
     RESULTS_DIR,
@@ -24,6 +30,7 @@ from config import (
 )
 from data.adult import load_adult
 from data.bank_marketing import load_bank_marketing
+from data.dry_bean import load_dry_bean
 from models.lightgbm import SEARCH_SPACE as LIGHTGBM_SEARCH_SPACE
 from models.random_forest import SEARCH_SPACE as RANDOM_FOREST_SEARCH_SPACE
 from models.xgboost import SEARCH_SPACE as XGBOOST_SEARCH_SPACE
@@ -121,6 +128,15 @@ def _dataset_paths(dataset_name: str):
             BANK_METADATA_PATH,
             BANK_FINAL_RESULTS_PATH,
         )
+    if dataset_name == "dry_bean":
+        return (
+            DRY_BEAN_RESULTS_DIR,
+            DRY_BEAN_TRIAL_RESULTS_PATH,
+            DRY_BEAN_SUMMARY_PATH,
+            DRY_BEAN_BEST_CONFIGS_PATH,
+            DRY_BEAN_METADATA_PATH,
+            DRY_BEAN_FINAL_RESULTS_PATH,
+        )
     raise ValueError(f"Unsupported dataset: {dataset_name}")
 
 
@@ -147,6 +163,8 @@ def run_experiment(
         load_adult(seed, max_rows=max_rows)
         if dataset_name == "adult"
         else load_bank_marketing(seed, max_rows=max_rows)
+        if dataset_name == "bank_marketing"
+        else load_dry_bean(seed, max_rows=max_rows)
     )
     context = ExperimentContext(
         dataset_name, model_name, splits.X_train, splits.X_validation,
@@ -241,6 +259,8 @@ def run_final_test_evaluation(
         load_adult(seed)
         if dataset_name == "adult"
         else load_bank_marketing(seed)
+        if dataset_name == "bank_marketing"
+        else load_dry_bean(seed)
     )
     context = ExperimentContext(
         dataset_name,

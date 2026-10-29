@@ -29,6 +29,7 @@ def build_model(
     model_parameters = dict(parameters)
     numeric_columns = model_parameters.pop("_numeric_columns", [])
     seed = model_parameters.pop("_seed", 42)
+    num_classes = model_parameters.pop("_num_classes", 2)
     preprocessor = ColumnTransformer(
         transformers=[
             ("numeric", SimpleImputer(strategy="median"), numeric_columns),
@@ -47,7 +48,8 @@ def build_model(
     )
     model = LGBMClassifier(
         **model_parameters,
-        objective="binary",
+        objective="binary" if num_classes == 2 else "multiclass",
+        num_class=num_classes if num_classes > 2 else None,
         random_state=seed,
         n_jobs=1,
         verbosity=-1,
