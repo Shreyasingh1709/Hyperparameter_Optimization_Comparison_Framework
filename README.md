@@ -28,6 +28,10 @@ py -3.10 main.py --model xgboost --optimizer random_search --trials 10
 # Repeat the XGBoost command with each of the other ten optimizer names above.
 py -3.10 main.py --model lightgbm --optimizer random_search --trials 10
 # Repeat the LightGBM command with each of the other ten optimizer names above.
+py -3.10 main.py --dataset bank_marketing --model lightgbm --optimizer random_search --trials 10
+# Replace lightgbm with random_forest or xgboost for the other models and repeat all 11 optimizers.
+# Bank Marketing final evaluation:
+py -3.10 main.py --dataset bank_marketing --model lightgbm --final-evaluate
 # Evaluate the best full-dataset configuration for a model on the test split:
 py -3.10 main.py --model xgboost --final-evaluate
 # Faster, explicitly reduced-data smoke pilot:

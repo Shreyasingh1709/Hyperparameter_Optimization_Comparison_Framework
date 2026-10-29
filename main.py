@@ -21,6 +21,11 @@ def main() -> None:
         default="random_forest",
     )
     parser.add_argument(
+        "--dataset",
+        choices=["adult", "bank_marketing"],
+        default="adult",
+    )
+    parser.add_argument(
         "--final-evaluate",
         action="store_true",
         help="Evaluate each optimizer's best validation configuration on the test set.",
@@ -37,11 +42,18 @@ def main() -> None:
     if args.final_evaluate:
         if args.optimizer is not None:
             parser.error("--final-evaluate cannot be combined with --optimizer")
-        run_final_test_evaluation(args.seed, args.model)
+        run_final_test_evaluation(args.seed, args.model, args.dataset)
     elif args.optimizer is None:
         parser.error("either --optimizer or --final-evaluate is required")
     else:
-        run_experiment(args.optimizer, args.trials, args.seed, args.max_rows, args.model)
+        run_experiment(
+            args.optimizer,
+            args.trials,
+            args.seed,
+            args.max_rows,
+            args.model,
+            args.dataset,
+        )
 
 
 if __name__ == "__main__":

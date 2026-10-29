@@ -9,6 +9,12 @@ from typing import Any
 
 from config import (
     BEST_CONFIGS_PATH,
+    BANK_BEST_CONFIGS_PATH,
+    BANK_FINAL_RESULTS_PATH,
+    BANK_METADATA_PATH,
+    BANK_RESULTS_DIR,
+    BANK_SUMMARY_PATH,
+    BANK_TRIAL_RESULTS_PATH,
     METADATA_PATH,
     RANDOM_SEED,
     RESULTS_DIR,
@@ -17,6 +23,7 @@ from config import (
     TRIAL_RESULTS_PATH,
 )
 from data.adult import load_adult
+from data.bank_marketing import load_bank_marketing
 from models.lightgbm import SEARCH_SPACE as LIGHTGBM_SEARCH_SPACE
 from models.random_forest import SEARCH_SPACE as RANDOM_FOREST_SEARCH_SPACE
 from models.xgboost import SEARCH_SPACE as XGBOOST_SEARCH_SPACE
@@ -95,12 +102,35 @@ def _append_unique_trials(records: list[dict[str, Any]]) -> None:
             existing.add(_trial_key(record))
 
 
+def _dataset_paths(dataset_name: str):
+    if dataset_name == "adult":
+        return (
+            RESULTS_DIR,
+            TRIAL_RESULTS_PATH,
+            SUMMARY_PATH,
+            BEST_CONFIGS_PATH,
+            METADATA_PATH,
+            FINAL_RESULTS_PATH,
+        )
+    if dataset_name == "bank_marketing":
+        return (
+            BANK_RESULTS_DIR,
+            BANK_TRIAL_RESULTS_PATH,
+            BANK_SUMMARY_PATH,
+            BANK_BEST_CONFIGS_PATH,
+            BANK_METADATA_PATH,
+            BANK_FINAL_RESULTS_PATH,
+        )
+    raise ValueError(f"Unsupported dataset: {dataset_name}")
+
+
 def run_experiment(
     optimizer_name: str,
     trials: int = 10,
     seed: int = 42,
     max_rows: int | None = None,
     model_name: str = "random_forest",
+    dataset_name: str = "adult",
 ) -> list[dict[str, Any]]:
     model_spaces = {
         "random_forest": RANDOM_FOREST_SEARCH_SPACE,
@@ -110,9 +140,16 @@ def run_experiment(
     if model_name not in model_spaces:
         raise ValueError(f"Unsupported model: {model_name}")
     search_space = model_spaces[model_name]
-    splits = load_adult(seed, max_rows=max_rows)
+    results_dir, trial_path, summary_path, best_path, metadata_path, _ = _dataset_paths(
+        dataset_name
+    )
+    splits = (
+        load_adult(seed, max_rows=max_rows)
+        if dataset_name == "adult"
+        else load_bank_marketing(seed, max_rows=max_rows)
+    )
     context = ExperimentContext(
-        "adult", model_name, splits.X_train, splits.X_validation,
+        dataset_name, model_name, splits.X_train, splits.X_validation,
         splits.y_train, splits.y_validation, splits.categorical_columns, seed,
         splits.X_test, splits.y_test,
     )
@@ -148,11 +185,19 @@ def run_experiment(
     data_rows = len(splits.X_train) + len(splits.X_validation) + len(splits.X_test)
     for record in records:
         record["data_rows"] = data_rows
-    _append_unique_trials(records)
+    old_trial_path = TRIAL_RESULTS_PATH
+    old_results_dir = RESULTS_DIR
+    try:
+        globals()["TRIAL_RESULTS_PATH"] = trial_path
+        globals()["RESULTS_DIR"] = results_dir
+        _append_unique_trials(records)
+    finally:
+        globals()["TRIAL_RESULTS_PATH"] = old_trial_path
+        globals()["RESULTS_DIR"] = old_results_dir
     completed = [record for record in records if record["status"] == "completed"]
     best = max(completed, key=lambda record: record["validation_macro_f1"]) if completed else None
     summary = {
-        "dataset": "adult",
+        "dataset": dataset_name,
         "model": model_name,
         "optimizer": optimizer_name,
         "requested_trials": trials,
@@ -162,12 +207,13 @@ def run_experiment(
         "best_parameters": best["parameters"] if best else None,
         "max_rows": max_rows,
     }
-    _append_csv(SUMMARY_PATH, summary)
+    _append_csv(summary_path, summary)
     best_configs = {}
-    if BEST_CONFIGS_PATH.exists():
-        best_configs = json.loads(BEST_CONFIGS_PATH.read_text(encoding="utf-8"))
-    best_configs[f"adult/{model_name}/{optimizer_name}"] = summary
-    BEST_CONFIGS_PATH.write_text(
+    if best_path.exists():
+        best_configs = json.loads(best_path.read_text(encoding="utf-8"))
+    best_configs[f"{dataset_name}/{model_name}/{optimizer_name}"] = summary
+    best_path.parent.mkdir(exist_ok=True)
+    best_path.write_text(
         json.dumps(best_configs, indent=2, default=_json_default),
         encoding="utf-8",
     )
@@ -177,7 +223,7 @@ def run_experiment(
         "executable": sys.executable,
         "platform": platform.platform(),
         "seed": seed,
-        "dataset": "adult",
+        "dataset": dataset_name,
         "model": model_name,
         "optimizer": optimizer_name,
         "trials": trials,
@@ -185,19 +231,27 @@ def run_experiment(
         "search_space": search_space,
         "test_set_used_during_optimization": False,
     }
-    METADATA_PATH.write_text(json.dumps(metadata, indent=2, default=str), encoding="utf-8")
+    metadata_path.parent.mkdir(exist_ok=True)
+    metadata_path.write_text(json.dumps(metadata, indent=2, default=str), encoding="utf-8")
     return records
 
 
 def run_final_test_evaluation(
-    seed: int = RANDOM_SEED, model_name: str = "random_forest"
+    seed: int = RANDOM_SEED,
+    model_name: str = "random_forest",
+    dataset_name: str = "adult",
 ) -> list[dict[str, Any]]:
-    if not TRIAL_RESULTS_PATH.exists():
-        raise FileNotFoundError(f"Trial results not found: {TRIAL_RESULTS_PATH}")
+    _, trial_path, _, _, _, final_path = _dataset_paths(dataset_name)
+    if not trial_path.exists():
+        raise FileNotFoundError(f"Trial results not found: {trial_path}")
 
-    splits = load_adult(seed)
+    splits = (
+        load_adult(seed)
+        if dataset_name == "adult"
+        else load_bank_marketing(seed)
+    )
     context = ExperimentContext(
-        "adult",
+        dataset_name,
         model_name,
         splits.X_train,
         splits.X_validation,
@@ -208,13 +262,13 @@ def run_final_test_evaluation(
         splits.X_test,
         splits.y_test,
     )
-    with TRIAL_RESULTS_PATH.open(newline="", encoding="utf-8-sig") as handle:
+    with trial_path.open(newline="", encoding="utf-8-sig") as handle:
         rows = list(csv.DictReader(handle))
     expected_rows = len(splits.X_train) + len(splits.X_validation) + len(splits.X_test)
     eligible = [
         row
         for row in rows
-        if row.get("dataset") == "adult"
+        if row.get("dataset") == dataset_name
         and row.get("model") == model_name
         and row.get("status") == "completed"
         and row.get("data_rows") == str(expected_rows)
@@ -259,8 +313,8 @@ def run_final_test_evaluation(
         )
 
     existing_final_records: list[dict[str, Any]] = []
-    if FINAL_RESULTS_PATH.exists():
-        with FINAL_RESULTS_PATH.open(newline="", encoding="utf-8-sig") as handle:
+    if final_path.exists():
+        with final_path.open(newline="", encoding="utf-8-sig") as handle:
             existing_final_records = list(csv.DictReader(handle))
     existing_final_records = [
         record for record in existing_final_records if record.get("model") != model_name
@@ -271,7 +325,8 @@ def run_final_test_evaluation(
         for key in record:
             if key not in fields:
                 fields.append(key)
-    with FINAL_RESULTS_PATH.open("w", newline="", encoding="utf-8") as handle:
+    final_path.parent.mkdir(exist_ok=True)
+    with final_path.open("w", newline="", encoding="utf-8") as handle:
         writer = csv.DictWriter(handle, fieldnames=fields)
         writer.writeheader()
         for record in all_final_records:
