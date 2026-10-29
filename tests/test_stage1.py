@@ -101,7 +101,10 @@ def test_lightgbm_objective_returns_metrics():
             "num_leaves": 15,
             "min_child_samples": 10,
             "subsample": 1.0,
+            "subsample_freq": 1,
             "colsample_bytree": 1.0,
+            "reg_alpha": 0.0,
+            "reg_lambda": 0.0,
         },
         context,
     )
@@ -114,7 +117,10 @@ def test_lightgbm_objective_returns_metrics():
         "num_leaves",
         "min_child_samples",
         "subsample",
+        "subsample_freq",
         "colsample_bytree",
+        "reg_alpha",
+        "reg_lambda",
     }
 
 

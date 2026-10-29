@@ -14,7 +14,19 @@ def run(search_space: dict[str, tuple], evaluate: Callable, trials: int, seed: i
     upper = [specification[2] if specification[0] == "int" else len(specification[1]) - 1 for specification in search_space.values()]
     initial = [(low + high) / 2 for low, high in zip(lower, upper)]
     records: list[dict[str, Any]] = []
-    options = {"bounds": [lower, upper], "maxfevals": trials, "seed": seed, "verb_disp": 0, "popsize": max(2, min(4, trials))}
+    options = {
+        "bounds": [lower, upper],
+        "maxfevals": trials,
+        "seed": seed,
+        "verb_disp": 0,
+        "popsize": max(2, min(4, trials)),
+        "tolflatfitness": trials,
+        "tolfun": 0,
+        "tolfunhist": 0,
+        "tolx": 0,
+        "tolxstagnation": False,
+        "tolstagnation": trials,
+    }
 
     def objective(vector):
         if len(records) >= trials:
