@@ -1,7 +1,7 @@
 {
-  "used_walltime": 58.12130260467529,
-  "used_target_function_walltime": 52.37355136871338,
-  "used_target_function_cputime": 49.71875,
-  "last_update": 1793289306.9796655,
+  "used_walltime": 20.140850067138672,
+  "used_target_function_walltime": 17.981784105300903,
+  "used_target_function_cputime": 17.5625,
+  "last_update": 1793291930.9091146,
   "finished": true
 }
