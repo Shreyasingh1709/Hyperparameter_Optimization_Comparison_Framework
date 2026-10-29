@@ -405,5 +405,247 @@
       "colsample_bytree": 0.7
     },
     "max_rows": null
+  },
+  "adult/lightgbm/random_search": {
+    "dataset": "adult",
+    "model": "lightgbm",
+    "optimizer": "random_search",
+    "requested_trials": 10,
+    "objective_evaluations": 10,
+    "completed_trials": 10,
+    "best_validation_macro_f1": 0.8266834368298246,
+    "best_parameters": {
+      "n_estimators": 102,
+      "max_depth": -1,
+      "learning_rate": 0.1,
+      "num_leaves": 27,
+      "min_child_samples": 50,
+      "subsample": 0.85,
+      "subsample_freq": 5,
+      "colsample_bytree": 0.7,
+      "reg_alpha": 1.0,
+      "reg_lambda": 0.1
+    },
+    "max_rows": null
+  },
+  "adult/lightgbm/optuna_tpe": {
+    "dataset": "adult",
+    "model": "lightgbm",
+    "optimizer": "optuna_tpe",
+    "requested_trials": 10,
+    "objective_evaluations": 10,
+    "completed_trials": 10,
+    "best_validation_macro_f1": 0.8261679350162039,
+    "best_parameters": {
+      "n_estimators": 169,
+      "max_depth": 3,
+      "learning_rate": 0.2,
+      "num_leaves": 46,
+      "min_child_samples": 7,
+      "subsample": 1.0,
+      "subsample_freq": 1,
+      "colsample_bytree": 1.0,
+      "reg_alpha": 0.1,
+      "reg_lambda": 0.0
+    },
+    "max_rows": null
+  },
+  "adult/lightgbm/grid_search": {
+    "dataset": "adult",
+    "model": "lightgbm",
+    "optimizer": "grid_search",
+    "requested_trials": 10,
+    "objective_evaluations": 10,
+    "completed_trials": 10,
+    "best_validation_macro_f1": 0.5731401143243795,
+    "best_parameters": {
+      "n_estimators": 50,
+      "max_depth": -1,
+      "learning_rate": 0.01,
+      "num_leaves": 15,
+      "min_child_samples": 5,
+      "subsample": 0.7,
+      "subsample_freq": 1,
+      "colsample_bytree": 0.85,
+      "reg_alpha": 0.0,
+      "reg_lambda": 0.0
+    },
+    "max_rows": null
+  },
+  "adult/lightgbm/hyperopt_tpe": {
+    "dataset": "adult",
+    "model": "lightgbm",
+    "optimizer": "hyperopt_tpe",
+    "requested_trials": 10,
+    "objective_evaluations": 10,
+    "completed_trials": 10,
+    "best_validation_macro_f1": 0.824476175692437,
+    "best_parameters": {
+      "colsample_bytree": 1.0,
+      "learning_rate": 0.05,
+      "max_depth": 8,
+      "min_child_samples": 37,
+      "n_estimators": 206,
+      "num_leaves": 47,
+      "reg_alpha": 0.0,
+      "reg_lambda": 0.1,
+      "subsample": 0.85,
+      "subsample_freq": 1
+    },
+    "max_rows": null
+  },
+  "adult/lightgbm/gaussian_process": {
+    "dataset": "adult",
+    "model": "lightgbm",
+    "optimizer": "gaussian_process",
+    "requested_trials": 10,
+    "objective_evaluations": 10,
+    "completed_trials": 10,
+    "best_validation_macro_f1": 0.8255746071662866,
+    "best_parameters": {
+      "n_estimators": 75,
+      "max_depth": 12,
+      "learning_rate": 0.2,
+      "num_leaves": 15,
+      "min_child_samples": 99,
+      "subsample": 0.85,
+      "subsample_freq": 5,
+      "colsample_bytree": 0.7,
+      "reg_alpha": 0.0,
+      "reg_lambda": 0.1
+    },
+    "max_rows": null
+  },
+  "adult/lightgbm/smac3": {
+    "dataset": "adult",
+    "model": "lightgbm",
+    "optimizer": "smac3",
+    "requested_trials": 10,
+    "objective_evaluations": 10,
+    "completed_trials": 10,
+    "best_validation_macro_f1": 0.8250292450856234,
+    "best_parameters": {
+      "colsample_bytree": 0.85,
+      "learning_rate": 0.05,
+      "max_depth": 5,
+      "min_child_samples": 20,
+      "n_estimators": 327,
+      "num_leaves": 74,
+      "reg_alpha": 1.0,
+      "reg_lambda": 0.1,
+      "subsample": 1.0,
+      "subsample_freq": 1
+    },
+    "max_rows": null
+  },
+  "adult/lightgbm/cma_es": {
+    "dataset": "adult",
+    "model": "lightgbm",
+    "optimizer": "cma_es",
+    "requested_trials": 10,
+    "objective_evaluations": 10,
+    "completed_trials": 10,
+    "best_validation_macro_f1": 0.8276584782331118,
+    "best_parameters": {
+      "n_estimators": 275,
+      "max_depth": 8,
+      "learning_rate": 0.05,
+      "num_leaves": 71,
+      "min_child_samples": 53,
+      "subsample": 0.85,
+      "subsample_freq": 5,
+      "colsample_bytree": 0.85,
+      "reg_alpha": 0.1,
+      "reg_lambda": 0.1
+    },
+    "max_rows": null
+  },
+  "adult/lightgbm/genetic_algorithm": {
+    "dataset": "adult",
+    "model": "lightgbm",
+    "optimizer": "genetic_algorithm",
+    "requested_trials": 10,
+    "objective_evaluations": 10,
+    "completed_trials": 10,
+    "best_validation_macro_f1": 0.8244393685944519,
+    "best_parameters": {
+      "n_estimators": 169,
+      "max_depth": 12,
+      "learning_rate": 0.2,
+      "num_leaves": 18,
+      "min_child_samples": 76,
+      "subsample": 0.7,
+      "subsample_freq": 5,
+      "colsample_bytree": 0.7,
+      "reg_alpha": 0.1,
+      "reg_lambda": 1.0
+    },
+    "max_rows": null
+  },
+  "adult/lightgbm/successive_halving": {
+    "dataset": "adult",
+    "model": "lightgbm",
+    "optimizer": "successive_halving",
+    "requested_trials": 10,
+    "objective_evaluations": 10,
+    "completed_trials": 10,
+    "best_validation_macro_f1": 0.8104432839625813,
+    "best_parameters": {
+      "n_estimators": 16,
+      "max_depth": 16,
+      "learning_rate": 0.2,
+      "num_leaves": 26,
+      "min_child_samples": 80,
+      "subsample": 0.85,
+      "subsample_freq": 1,
+      "colsample_bytree": 0.7,
+      "reg_alpha": 0.0,
+      "reg_lambda": 0.0
+    },
+    "max_rows": null
+  },
+  "adult/lightgbm/hyperband": {
+    "dataset": "adult",
+    "model": "lightgbm",
+    "optimizer": "hyperband",
+    "requested_trials": 10,
+    "objective_evaluations": 10,
+    "completed_trials": 10,
+    "best_validation_macro_f1": 0.8212727954527512,
+    "best_parameters": {
+      "n_estimators": 25,
+      "max_depth": 16,
+      "learning_rate": 0.2,
+      "num_leaves": 26,
+      "min_child_samples": 80,
+      "subsample": 0.85,
+      "subsample_freq": 1,
+      "colsample_bytree": 0.7,
+      "reg_alpha": 0.0,
+      "reg_lambda": 0.0
+    },
+    "max_rows": null
+  },
+  "adult/lightgbm/pairwise": {
+    "dataset": "adult",
+    "model": "lightgbm",
+    "optimizer": "pairwise",
+    "requested_trials": 10,
+    "objective_evaluations": 10,
+    "completed_trials": 10,
+    "best_validation_macro_f1": 0.8242974100930058,
+    "best_parameters": {
+      "n_estimators": 500,
+      "max_depth": 5,
+      "learning_rate": 0.1,
+      "num_leaves": 15,
+      "min_child_samples": 5,
+      "subsample": 0.85,
+      "subsample_freq": 1,
+      "colsample_bytree": 0.85,
+      "reg_alpha": 1.0,
+      "reg_lambda": 1.0
+    },
+    "max_rows": null
   }
 }
