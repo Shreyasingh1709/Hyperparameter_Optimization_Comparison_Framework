@@ -52,8 +52,8 @@ def _json_default(value: Any) -> Any:
     raise TypeError(f"Object of type {type(value).__name__} is not JSON serializable")
 
 
-def _append_csv(path, row: dict[str, Any]) -> None:
-    RESULTS_DIR.mkdir(exist_ok=True)
+def _append_csv(path, row: dict[str, Any], results_dir=None) -> None:
+    (results_dir or RESULTS_DIR).mkdir(exist_ok=True)
     encoded_row = {
         key: json.dumps(value, default=_json_default)
         if isinstance(value, dict)
@@ -91,14 +91,14 @@ def _trial_key(row: dict[str, Any]) -> tuple[str, str, str, str, str, str]:
     )
 
 
-def _append_unique_trials(records: list[dict[str, Any]]) -> None:
+def _append_unique_trials(records: list[dict[str, Any]], trial_path, results_dir) -> None:
     existing: set[tuple[str, str, str, str, str, str]] = set()
-    if TRIAL_RESULTS_PATH.exists():
-        with TRIAL_RESULTS_PATH.open(newline="", encoding="utf-8-sig") as handle:
+    if trial_path.exists():
+        with trial_path.open(newline="", encoding="utf-8-sig") as handle:
             existing = {_trial_key(row) for row in csv.DictReader(handle)}
     for record in records:
         if _trial_key(record) not in existing:
-            _append_csv(TRIAL_RESULTS_PATH, record)
+            _append_csv(trial_path, record, results_dir)
             existing.add(_trial_key(record))
 
 
@@ -185,15 +185,7 @@ def run_experiment(
     data_rows = len(splits.X_train) + len(splits.X_validation) + len(splits.X_test)
     for record in records:
         record["data_rows"] = data_rows
-    old_trial_path = TRIAL_RESULTS_PATH
-    old_results_dir = RESULTS_DIR
-    try:
-        globals()["TRIAL_RESULTS_PATH"] = trial_path
-        globals()["RESULTS_DIR"] = results_dir
-        _append_unique_trials(records)
-    finally:
-        globals()["TRIAL_RESULTS_PATH"] = old_trial_path
-        globals()["RESULTS_DIR"] = old_results_dir
+    _append_unique_trials(records, trial_path, results_dir)
     completed = [record for record in records if record["status"] == "completed"]
     best = max(completed, key=lambda record: record["validation_macro_f1"]) if completed else None
     summary = {
@@ -207,7 +199,7 @@ def run_experiment(
         "best_parameters": best["parameters"] if best else None,
         "max_rows": max_rows,
     }
-    _append_csv(summary_path, summary)
+    _append_csv(summary_path, summary, results_dir)
     best_configs = {}
     if best_path.exists():
         best_configs = json.loads(best_path.read_text(encoding="utf-8"))
